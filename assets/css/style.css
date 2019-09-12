@@ -1,0 +1,16 @@
+.gif-container {
+    position: relative;
+    display: inline-block;
+}
+
+.gif-container .rating {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    min-width: 25px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+}
