@@ -30,7 +30,7 @@ const renderTopics = (selector) => {
     let $selector = $(selector);
     $selector.empty();
     topics.forEach((topic) => {
-        $('<button>').text(topic).data('topic', topic).appendTo($selector);
+        $('<button class="btn btn-topic">').text(topic).data('topic', topic).appendTo($selector);
     });
 };
 
@@ -38,9 +38,10 @@ $(document).ready(() => {
     renderLayout('body');
     renderTopics('.topics');
     renderForm('.add-topic-form');
-    $(document).on('click', 'button', (e) => {
+
+    $(document).on('click', '.btn-topic', (e) => {
         $.ajax({
-            'url': `https://api.giphy.com/v1/gifs/search?q=${$(e.target).data('topic')}&api_key=${giphy_api_key}`,
+            'url': `https://api.giphy.com/v1/gifs/search?q=${$(e.target).data('topic')}&limit=10&api_key=${giphy_api_key}`,
             'method': 'GET'
         })
         .then((response) => {
@@ -48,19 +49,22 @@ $(document).ready(() => {
             items.forEach((item) => {
                 let img_url_anim = item.images.fixed_height_small.url;
                 let img_url_still = item.images.fixed_height_small_still.url;
+                let item_title = item.title.split('GIF')[0].trim();
                 let $container = $('<div class="gif-container">');
-                $('<img>')
+                $('<img class="gif">')
                     .attr('src',img_url_still)
                     .data('still', img_url_still)
                     .data('anim', img_url_anim)
-                    .data('state','still').appendTo($container)
+                    .data('state','still')
+                    .appendTo($container);
+                $('<div class="title">').text(item_title).appendTo($container);
                 $('<div class="rating">').text(item.rating).appendTo($container);
                 $container.appendTo('body');
             });
         });
     });
 
-    $(document).on('click', 'img', (e) => {
+    $(document).on('click', 'img.gif', (e) => {
         let $this = $(e.target);
         $this.attr('src', $this.data('state') == 'still'? $this.data('anim') : $this.data('still'));
         $this.data('state', $this.data('state') == 'still'? 'anim' : 'still');
