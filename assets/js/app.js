@@ -74,6 +74,7 @@ $(document).ready(() => {
                     .appendTo($container);
                 $('<div class="title">').text(item_title).appendTo($container);
                 $('<div class="rating">').text(item.rating).appendTo($container);
+                $('<div class="close">').append('<i class="fas fa-times-circle">').appendTo($container);
                 $container.appendTo('body');
             });
         });
@@ -89,7 +90,13 @@ $(document).ready(() => {
     $(document).on('click', '.btn-add-topic', (e) => {
         e.preventDefault();
         topics.push($('#input-topic').val());
-        console.log(topics);
         renderTopics('.topics');
+    });
+
+    $(document).on('click', '.close', (e) => {
+        let $gifContainer = $(e.target).parents('.gif-container');
+        $gifContainer.fadeOut(300, (e) => {
+            $gifContainer.remove();
+         });
     });
 });

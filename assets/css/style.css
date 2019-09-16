@@ -24,3 +24,12 @@
     color: #fff;
     text-align: center;
 }
+
+.gif-container .close {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 5;
+    font-size: 12px;
+    color: #FFF;
+}
