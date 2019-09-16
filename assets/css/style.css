@@ -18,6 +18,7 @@
 .gif-container .title {
     position: absolute;
     bottom: 0px;
+    font-size: 10px;
     width: 100%;
     background-color: rgba(0,0,0,0.6);
     color: #fff;

@@ -1,7 +1,24 @@
 let topics = [
     'aesthetic geometry',
     'reaction diffusion',
-    'simple ricks'
+    'neural-style transfer',
+    'deepdream',
+    'infinite recursion',
+    'tunnel zoom',
+    'raymarch',
+    'voronoi',
+    'particle system',
+    'glitch',
+    'video feedback',
+    'rabbit hole',
+    'fractal universe',
+    'vhs sex',
+    'crt dreams',
+    'triangles',
+    'datamosh',
+    'cymatics',
+    'geometry shader',
+    'interpolated rotoscoping'
 ];
 
 const giphy_api_key = 'MiGL51eeISOE7wrHzrBCY1bBCX9YcfnI';
