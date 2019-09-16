@@ -1,9 +1,7 @@
 let topics = [
-    'late capitalism',
-    'hypernormalization',
-    'psyops',
-    'simpsons wave',
-    'wook'
+    'aesthetic geometry',
+    'reaction diffusion',
+    'simple ricks'
 ];
 
 const giphy_api_key = 'MiGL51eeISOE7wrHzrBCY1bBCX9YcfnI';
@@ -68,6 +66,7 @@ $(document).ready(() => {
         let $this = $(e.target);
         $this.attr('src', $this.data('state') == 'still'? $this.data('anim') : $this.data('still'));
         $this.data('state', $this.data('state') == 'still'? 'anim' : 'still');
+        $this.parent().find(':not(img.gif)').toggle('fade');
     });
 
     $(document).on('click', '.btn-add-topic', (e) => {
